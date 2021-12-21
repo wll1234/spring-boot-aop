@@ -1,5 +1,5 @@
 package com.example.aop.example.intf;
 
 public interface EventService {
-    void test();
+    String test(String arg1, String arg2);
 }

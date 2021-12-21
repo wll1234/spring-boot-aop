@@ -9,13 +9,14 @@ public class EventServiceImpl implements EventService {
 
     @CheckTime
     @Override
-    public void test() {
+    public String test(String arg1, String arg2) {
+        System.out.println("Service begin (" + arg1 + ", " + arg2 + ")");
         try {
             Thread.sleep(1000);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Created an event");
-
+        System.out.println("Service end");
+        return "Service done";
     }
 }
