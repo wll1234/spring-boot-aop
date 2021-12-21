@@ -53,4 +53,16 @@ public class RunTime {
         System.out.println("[After] signature = " + jp.getSignature());
         System.out.println("[After] sourceLocation = " + jp.getSourceLocation());
     }
+
+    @AfterThrowing(value = "@annotation(com.example.aop.example.annotation.CheckTime)", throwing = "e")
+    public void afterThrowingCheckTime(JoinPoint jp, Exception e) throws Throwable {
+        System.out.print("[AfterThrowing] arg = ");
+        Arrays.stream(jp.getArgs()).forEach(x -> System.out.print(x + " "));
+        System.out.println();
+        System.out.println("[AfterThrowing] kind = " + jp.getKind());
+        System.out.println("[AfterThrowing] target = " + jp.getTarget());
+        System.out.println("[AfterThrowing] exception = " + e.getMessage());
+        System.out.println("[AfterThrowing] signature = " + jp.getSignature());
+        System.out.println("[AfterThrowing] sourceLocation = " + jp.getSourceLocation());
+    }
 }

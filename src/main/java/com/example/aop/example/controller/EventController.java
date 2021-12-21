@@ -21,6 +21,13 @@ public class EventController {
     public void test(){
         System.out.println("Controller begin");
         String response = eventService.test("argument1", "argument2");
-        System.out.println("Controller end. response = " + response);
+        System.out.println("Controller response = " + response);
+        System.out.println("==========================================");
+        try {
+            eventService.exceptionTest();
+        } catch (Exception e) {
+            System.out.println("Controller Exception! message = " + e.getMessage());
+        }
+        System.out.println("Controller end");
     }
 }

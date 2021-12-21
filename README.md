@@ -8,26 +8,45 @@ Result :
 
 ```
 Controller begin
-[Around] Begin : 1640088351640
+[Around] Begin : 1640088997233
 [AfterReturning] arg = argument1 argument2 
 [Before] kind = method-execution
-[Before] target = com.example.aop.example.service.EventServiceImpl@f677351
+[Before] target = com.example.aop.example.service.EventServiceImpl@51403897
 [Before] signature = String com.example.aop.example.service.EventServiceImpl.test(String,String)
-[Before] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@45e81a5d
+[Before] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6a70bf76
 Service begin (argument1, argument2)
 Service end
 [AfterReturning] arg = argument1 argument2 
 [AfterReturning] kind = method-execution
-[AfterReturning] target = com.example.aop.example.service.EventServiceImpl@f677351
+[AfterReturning] target = com.example.aop.example.service.EventServiceImpl@51403897
 [AfterReturning] response = Service done
 [AfterReturning] signature = String com.example.aop.example.service.EventServiceImpl.test(String,String)
-[AfterReturning] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@45e81a5d
+[AfterReturning] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6a70bf76
 [After] arg = argument1 argument2 
 [After] kind = method-execution
-[After] target = com.example.aop.example.service.EventServiceImpl@f677351
+[After] target = com.example.aop.example.service.EventServiceImpl@51403897
 [After] signature = String com.example.aop.example.service.EventServiceImpl.test(String,String)
-[After] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@45e81a5d
-[Around] Runtime : 1082
-Controller end. response = Service done
-
+[After] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6a70bf76
+[Around] Runtime : 1057
+Controller response = Service done
+==========================================
+[Around] Begin : 1640088998290
+[AfterReturning] arg = 
+[Before] kind = method-execution
+[Before] target = com.example.aop.example.service.EventServiceImpl@51403897
+[Before] signature = void com.example.aop.example.service.EventServiceImpl.exceptionTest()
+[Before] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@1969a726
+[AfterThrowing] arg = 
+[AfterThrowing] kind = method-execution
+[AfterThrowing] target = com.example.aop.example.service.EventServiceImpl@51403897
+[AfterThrowing] exception = Exception message
+[AfterThrowing] signature = void com.example.aop.example.service.EventServiceImpl.exceptionTest()
+[AfterThrowing] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@1969a726
+[After] arg = 
+[After] kind = method-execution
+[After] target = com.example.aop.example.service.EventServiceImpl@51403897
+[After] signature = void com.example.aop.example.service.EventServiceImpl.exceptionTest()
+[After] sourceLocation = org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@1969a726
+Controller Exception! message = Exception message
+Controller end
 ```

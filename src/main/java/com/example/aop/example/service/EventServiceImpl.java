@@ -19,4 +19,10 @@ public class EventServiceImpl implements EventService {
         System.out.println("Service end");
         return "Service done";
     }
+
+    @CheckTime
+    @Override
+    public void exceptionTest() throws Exception {
+        throw new Exception("Exception message");
+    }
 }
