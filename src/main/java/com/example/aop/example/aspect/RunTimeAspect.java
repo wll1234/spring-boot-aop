@@ -5,6 +5,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 
 @Aspect
 @Component
@@ -12,16 +13,18 @@ public class RunTimeAspect {
 
     @Around("@annotation(com.example.aop.example.annotation.Benchmark)")
     public Object aroundBenchmark(ProceedingJoinPoint pjp) throws Throwable {
-        long begin = System.currentTimeMillis();
+        StopWatch stopWatch = new StopWatch();
         System.out.println("[Around]");
         System.out.println("  toString = "+pjp);
         System.out.println("  arg = ");
         Arrays.stream(pjp.getArgs()).forEach(x -> System.out.println("    "+x));
+        stopWatch.start();
         Object obj = pjp.proceed();
+        stopWatch.stop();;
         System.out.println("[Around]");
         System.out.println("  toString = "+pjp);
         System.out.println("  Response : " + obj);
-        System.out.println("  Runtime : " + (System.currentTimeMillis() - begin));
+        System.out.println("  Runtime : " + stopWatch.getTotalTimeMillis());
         return obj;
     }
 
@@ -61,16 +64,18 @@ public class RunTimeAspect {
 
     @Around("execution(* com.example.aop.example.controller..*(..)) || execution(* com.example.aop.example.service..*(..))")
     public Object aroundPackage(ProceedingJoinPoint pjp) throws Throwable {
-        long begin = System.currentTimeMillis();
+        StopWatch stopWatch = new StopWatch();
         System.out.println("[Around-Package]");
         System.out.println("  toString = "+pjp);
         System.out.println("  arg = ");
         Arrays.stream(pjp.getArgs()).forEach(x -> System.out.println("   "+x));
+        stopWatch.start();
         Object obj = pjp.proceed();
+        stopWatch.stop();
         System.out.println("[Around-Package]");
         System.out.println("  toString = "+pjp);
         System.out.println("  Response : " + obj);
-        System.out.println("  Runtime : " + (System.currentTimeMillis() - begin));
+        System.out.println("  Runtime : " + stopWatch.getTotalTimeMillis());
         return obj;
     }
 }
