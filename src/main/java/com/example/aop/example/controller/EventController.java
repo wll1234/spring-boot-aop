@@ -1,6 +1,7 @@
 package com.example.aop.example.controller;
 
-import com.example.aop.example.intf.EventService;
+import com.example.aop.example.annotation.Benchmark;
+import com.example.aop.example.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +18,9 @@ public class EventController {
         this.eventService = eventService;
     }
 
+    @Benchmark
     @GetMapping("")
-    public void test(){
+    public String test(){
         System.out.println("Controller begin");
         String response = eventService.test("argument1", "argument2");
         System.out.println("Controller response = " + response);
@@ -29,5 +31,6 @@ public class EventController {
             System.out.println("Controller Exception! message = " + e.getMessage());
         }
         System.out.println("Controller end");
+        return "TEST END";
     }
 }

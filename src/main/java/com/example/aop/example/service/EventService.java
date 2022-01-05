@@ -1,14 +1,12 @@
 package com.example.aop.example.service;
 
-import com.example.aop.example.annotation.CheckTime;
-import com.example.aop.example.intf.EventService;
+import com.example.aop.example.annotation.Benchmark;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EventServiceImpl implements EventService {
+public class EventService {
 
-    @CheckTime
-    @Override
+    @Benchmark
     public String test(String arg1, String arg2) {
         System.out.println("Service begin (" + arg1 + ", " + arg2 + ")");
         try {
@@ -20,8 +18,7 @@ public class EventServiceImpl implements EventService {
         return "Service done";
     }
 
-    @CheckTime
-    @Override
+    @Benchmark
     public void exceptionTest() throws Exception {
         throw new Exception("Exception message");
     }
